@@ -1,0 +1,19 @@
+body{
+    background: #f8f8f8;
+}
+.btn {
+    width: 150px;
+    border-radius: 0;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+option {
+    font-size: 50px !important;
+}
+
+.card-header {
+    background: #a3c1e3;
+}
