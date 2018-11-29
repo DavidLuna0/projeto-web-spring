@@ -7,11 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_cliente")
+@Table(name = "tb_cliente")
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -20,14 +21,25 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable=false, length=11)
+	@Column(nullable = false, length = 11)
 	private String cpf;
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String nome;
 
 	@OneToOne
 	private Endereco endereco;
+
+	@ManyToOne
+	private Concessionaria concessionaria;
+
+	public Concessionaria getConcessionaria() {
+		return concessionaria;
+	}
+
+	public void setConcessionaria(Concessionaria concessionaria) {
+		this.concessionaria = concessionaria;
+	}
 
 	public String getCpf() {
 		return cpf;
