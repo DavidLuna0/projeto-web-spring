@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cadastro de Cliente</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../static/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="all.css">
+    <title>Cadastro de Concessionaria</title>
+
+    
 </head>
 
 <body>
@@ -21,6 +24,8 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="#">Cliente</a>
                 <a class="nav-item nav-link" href="#">Carro</a>
+                <a class="nav-item nav-link" href="#">Concessionária</a>
+
             </div>
         </div>
     </nav>
@@ -30,37 +35,22 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Cadastro de Cliente</h4>
+                    <h4>Cadastro de Concessionária</h4>
                 </div>
 
                 <div class="card-body">
                     <div class="form-row">
-
                         <!-- Div Nome -->
                         <div class="form-group col-lg-6 col-sm-12">
                             <label class="" for="nome">Nome</label>
                             <input class="form-control" type="text" name="nome" id="nome">
                         </div>
-
-                        <!-- Div CPF -->
-                        <div class="form-group col-lg-6 col-sm-12">
-                            <label class="" for="cpf">CPF</label>
-                            <input class="form-control" type="text" name="cpf" id="cpf">
-                        </div>
                     </div>
-
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="card-header">
-                    <h4>Endereço</h4>
-                </div>
-
-                <div class="card-body">
                     <div class="form-row">
-
+                        <h5 class="card-title">Endereço</h5>
+                    </div>
+                    <div class="form-row">
+                        
                         <!-- Div Endereço -->
                         <div class="form-group col-lg-6 col-sm-12">
                             <label class="" for="rua">Rua</label>
@@ -124,7 +114,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-right">
-                    <button type="submit" class="btn btn-outline-secondary">Calcelar</button>
+                    <button type="reset" class="btn btn-outline-secondary">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             </div>

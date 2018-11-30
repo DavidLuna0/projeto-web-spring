@@ -17,7 +17,7 @@ import br.com.web.repositories.ConcessionariaRepository;
 
 @Controller
 public class ClienteController {
-
+/*
 	@Autowired
 	private ClienteRepository clr;
 
@@ -53,6 +53,6 @@ public class ClienteController {
 		attributes.addFlashAttribute("mensagem", "Cliente adicionado com sucesso");
 		return "redirect:/{id}";
 
-	}
+	}*/
 
 }

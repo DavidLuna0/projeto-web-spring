@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +28,13 @@ public class Carro implements Serializable {
 
 	@Column(nullable = false)
 	private double valor;
+	
+	@ManyToOne
+	private Concessionaria concessionaria;
+	
+	public void setConcessionaria(Concessionaria concessionaria) {
+		this.concessionaria = concessionaria;
+	}
 
 	public String getModelo() {
 		return modelo;
