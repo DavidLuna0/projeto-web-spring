@@ -20,9 +20,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Cliente</a>
-                <a class="nav-item nav-link" href="carro.html">Carro</a>
-                <a class="nav-item nav-link" href="concessionaria.html">Concessionária</a>
+                <a th:href="${#mvc.url('IC#detalharConcessionaria').arg(0, concessionaria.id).build()}"><span>Voltar</span></a>
             </div>
         </div>
     </nav>

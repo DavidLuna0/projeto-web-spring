@@ -30,11 +30,11 @@ public class ClienteController {
 	private EnderecoRepository end;
 
 
-	@RequestMapping(value="/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="/cli/{id}",method=RequestMethod.POST)
 	public String detalhesConcessionariaPost(@PathVariable("id") long id, @Valid Cliente cliente, @Valid Endereco endereco, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos!!!");
-			return "redirect:/{id}";
+			return "redirect:/cli/{id}";
 		}
 		Concessionaria concessionaria = cr.findById(id);
 		cliente.setConcessionaria(concessionaria);
@@ -43,7 +43,7 @@ public class ClienteController {
 		cliente.setEndereco(enderecoCad);
 		clr.save(cliente);
 		attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso");
-		return "redirect:/{id}";
+		return "redirect:/cli/{id}";
 	}
 
 

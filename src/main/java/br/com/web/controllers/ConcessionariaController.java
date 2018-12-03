@@ -5,14 +5,15 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.web.models.Carro;
 import br.com.web.models.Concessionaria;
 import br.com.web.models.Endereco;
 import br.com.web.repositories.CarroRepository;
-import br.com.web.repositories.ClienteRepository;
 import br.com.web.repositories.ConcessionariaRepository;
 import br.com.web.repositories.EnderecoRepository;
 
@@ -25,9 +26,6 @@ public class ConcessionariaController {
 
 	@Autowired
 	private ConcessionariaRepository cr;
-	
-	@Autowired
-	private ClienteRepository clr;
 	
 	@Autowired
 	private EnderecoRepository end;
@@ -52,20 +50,21 @@ public class ConcessionariaController {
 		return "redirect:/concessionaria";
 	}
 	
-	/*
-	@RequestMapping(value="/{id}",method=RequestMethod.POST)
+	
+	@RequestMapping(value="/car/{id}",method=RequestMethod.POST)
 	public String detalhesConcessionariaPost(@PathVariable("id") long id, @Valid Carro carro, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos!!!");
-			return "redirect:/{id}";
+			return "redirect:/car/{id}";
 		}
 		Concessionaria concessionaria = cr.findById(id);
 		carro.setConcessionaria(concessionaria);
 		car.save(carro);
 		attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso");
-		return "redirect:/{id}";
+		return "redirect:/car/{id}";
 	}
-	*/
+	
+	
 	
 	//Metodo para listar todos os clientes e carros cadastrado em uma concessionaria
 	/*

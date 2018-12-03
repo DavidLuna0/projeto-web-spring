@@ -20,9 +20,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="cliente.html">Cliente</a>
-                <a class="nav-item nav-link active" href="#">Carro</a>
-                <a class="nav-item nav-link" href="concessionaria.html">Concessionária</a>
+                <a th:href="${#mvc.url('IC#detalharConcessionaria').arg(0, concessionaria.id).build()}"><span>Voltar</span></a>
             </div>
         </div>
     </nav>
@@ -62,7 +60,7 @@
 
             <div class="form-row">
                 <div class="col-12 text-right">
-                    <button type="reset" class="btn btn-outline-secondary">Calcelar</button>
+                    <button type="submit" class="btn btn-outline-secondary">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             </div>

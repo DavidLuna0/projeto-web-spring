@@ -33,4 +33,22 @@ public class IndexController {
 		
 	}
 	
+	@RequestMapping(value="/cli/{id}")
+	public ModelAndView cliConcessionaria(@PathVariable("id") long id) {
+		Concessionaria concessionaria = cr.findById(id);
+		ModelAndView mv = new ModelAndView("cliente");
+		mv.addObject("concessionaria", concessionaria);
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="/car/{id}")
+	public ModelAndView carConcessionaria(@PathVariable("id") long id) {
+		Concessionaria concessionaria = cr.findById(id);
+		ModelAndView mv = new ModelAndView("carro");
+		mv.addObject("concessionaria", concessionaria);
+		return mv;
+		
+	}
+	
 }
