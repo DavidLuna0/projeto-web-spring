@@ -1,0 +1,32 @@
+body{
+    background: #f8f8f8;
+    height: 100%;
+}
+.btn {
+    width: 150px;
+    margin-top: 20px;
+    border-radius: 0;
+}
+
+
+.card {
+    margin: auto;
+    margin-top: 20px;
+}
+
+option {
+    font-size: 50px !important;
+}
+
+.card-header {
+    background: #a3c1e3;
+}
+
+
+
+@media screen and (max-width: 600px) {
+   .btn {
+       width: 100%;
+       margin: 5px 0; 
+    }
+}

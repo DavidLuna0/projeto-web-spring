@@ -32,23 +32,42 @@ public class ConcessionariaController {
 	@Autowired
 	private EnderecoRepository end;
 	
-	@RequestMapping("/concessionaria")
+	@RequestMapping(value="/concessionaria", method=RequestMethod.GET)
 	public String concessionaria() {
 		return "concessionaria";
 	}
 	
 	
 	@RequestMapping(value="/concessionaria", method=RequestMethod.POST)
-	public String form(@Valid Concessionaria concessionaria, @Valid Endereco endereco, BindingResult result, RedirectAttributes attributes) {
+	public String cadConcessionaria(@Valid Concessionaria concessionaria, @Valid Endereco endereco, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos");
 			return "redirect:/concessionaria";
 		}
-		cr.save(concessionaria);
 		end.save(endereco);
+		Endereco enderecoCad = end.findById(end.count());
+		concessionaria.setEndereco(enderecoCad);
+		cr.save(concessionaria);
 		attributes.addFlashAttribute("mensagem", "Concessionaria adicionado com sucesso");
 		return "redirect:/concessionaria";
 	}
+	
+	/*
+	@RequestMapping(value="/{id}",method=RequestMethod.POST)
+	public String detalhesConcessionariaPost(@PathVariable("id") long id, @Valid Carro carro, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Verifique os campos!!!");
+			return "redirect:/{id}";
+		}
+		Concessionaria concessionaria = cr.findById(id);
+		carro.setConcessionaria(concessionaria);
+		car.save(carro);
+		attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso");
+		return "redirect:/{id}";
+	}
+	*/
+	
+	//Metodo para listar todos os clientes e carros cadastrado em uma concessionaria
 	/*
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ModelAndView detalhesConcessionariaClientes(@PathVariable("id") long id) {

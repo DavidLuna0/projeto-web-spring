@@ -12,47 +12,39 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.web.models.Cliente;
 import br.com.web.models.Concessionaria;
+import br.com.web.models.Endereco;
 import br.com.web.repositories.ClienteRepository;
 import br.com.web.repositories.ConcessionariaRepository;
+import br.com.web.repositories.EnderecoRepository;
 
 @Controller
 public class ClienteController {
-/*
+	
 	@Autowired
 	private ClienteRepository clr;
 
 	@Autowired
 	private ConcessionariaRepository cr;
+	
+	@Autowired
+	private EnderecoRepository end;
 
-	@RequestMapping("/cliente")
-	public String cliente() {
-		return "cliente";
-	}
 
-	@RequestMapping(value = "/cliente", method = RequestMethod.POST)
-	public String form(@Valid Cliente cliente, BindingResult result, RedirectAttributes attributes) {
-		if (result.hasErrors()) {
-			attributes.addFlashAttribute("mensagem", "Verifique os campos");
-			return "redirect:/cliente";
-		}
-		clr.save(cliente);
-		attributes.addFlashAttribute("mensagem", "Cliente adicionado com sucesso");
-		return "redirect:/cliente";
-	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String cadClienteConcessionaria(@PathVariable("id") long id, @Valid Cliente cliente, BindingResult result,
-			RedirectAttributes attributes) {
-		if (result.hasErrors()) {
+	@RequestMapping(value="/{id}",method=RequestMethod.POST)
+	public String detalhesConcessionariaPost(@PathVariable("id") long id, @Valid Cliente cliente, @Valid Endereco endereco, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos!!!");
 			return "redirect:/{id}";
 		}
 		Concessionaria concessionaria = cr.findById(id);
 		cliente.setConcessionaria(concessionaria);
+		end.save(endereco);
+		Endereco enderecoCad = end.findById(end.count());
+		cliente.setEndereco(enderecoCad);
 		clr.save(cliente);
-		attributes.addFlashAttribute("mensagem", "Cliente adicionado com sucesso");
+		attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso");
 		return "redirect:/{id}";
+	}
 
-	}*/
 
 }

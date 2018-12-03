@@ -3,10 +3,23 @@
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<meta charset="UTF-8">
-	<title>Hibernate deu errado</title>
+	<title>Gerenciamento de Concessionarias</title>
 	
 </head>
 <body>
-	<h1>Bem vindo a página inicial</h1>
+	<h1>Bem vindo ao nosso sistema de gerenciamento de concessionária.</h1>
+	
+	<table class="container">
+			<thead>
+				<tr>
+					<th>Nome da concessionaria</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="concessionaria : ${concessionarias}">
+					<td><a th:href="${#mvc.url('IC#detalharConcessionaria').arg(0, concessionaria.id).build()}"><span th:text="${concessionaria.nome}"></span></a></td>
+				</tr>
+			</tbody>
+		</table>
 </body>
 </html>

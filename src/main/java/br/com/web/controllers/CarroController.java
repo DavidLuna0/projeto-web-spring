@@ -16,29 +16,14 @@ import br.com.web.repositories.ConcessionariaRepository;
 
 public class CarroController {
 
-	/*
+
 	@Autowired
 	private CarroRepository car;
 
 	@Autowired
 	private ConcessionariaRepository cr;
 
-	@RequestMapping("/carro")
-	public String carro() {
-		return "carro";
-	}
-
-	@RequestMapping(value = "/carro", method = RequestMethod.POST)
-	public String form(@Valid Carro carro, BindingResult result, RedirectAttributes attributes) {
-		if (result.hasErrors()) {
-			attributes.addFlashAttribute("mensagem", "Verifique os campos");
-			return "redirect:/carro";
-		}
-		car.save(carro);
-		attributes.addFlashAttribute("mensagem", "Carro adicionado com sucesso");
-		return "redirect:/carro";
-	}
-
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	public String cadCarroConcessionaria(@PathVariable("id") long id, @Valid Carro carro, BindingResult result,
 			RedirectAttributes attributes) {
@@ -53,5 +38,5 @@ public class CarroController {
 		return "redirect:/{id}";
 
 	}
-	*/
+	
 }
